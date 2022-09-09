@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Tahoma, sans-serif;
+}
+
+button {
+  cursor: pointer;
+  margin-right: 12px;
+  padding: 8px 16px;
+  border: 0;
+  outline: 0;
+  border-radius: 4px;
+  background-color: midnightblue;
+  color: white;
+}
+
+button:hover {
+  background-color: darkblue;
+}
+
+input {
+  width: 80%;
+  height: 40px;
+  margin-right: 24px;
+  margin-bottom: 12px;
+}
