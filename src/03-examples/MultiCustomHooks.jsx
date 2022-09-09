@@ -1,31 +1,28 @@
-import { useState } from 'react'
-import { useFetch } from '../hooks/useFetch'
+import { useCounter, useFetch } from '../hooks'
+import { Loading } from '../loading/Loading'
+import { Quote } from '../quote/Quote'
 
 const baseUrl = 'https://www.breakingbadapi.com/api/'
 
 export const MultiCustomHooks = () => {
-  const [id, setId] = useState(1)
 
-  const { data, isLoading, isError } = useFetch(`${baseUrl}quotes/${id}`)
-
+  const { counter, increment } = useCounter(1)
+  const { data, isLoading, isError } = useFetch(`${baseUrl}quotes/${counter}`)
   const { author, quote } = !!data && data[0]
 
   return (
     <>
       <div>MultiCustomHooks</div>
 
-      {
-        isLoading
-          ? <div>Loading...</div>
-          : (
-            <blockquote>
-              <p>{quote}</p>
-              <footer>{author}</footer>
-            </blockquote>
-          )
-      }
+      <section>
+        {
+          isLoading
+            ? <Loading />
+            : <Quote quote={quote} author={author} />
+        }
 
-      <button onClick={() => setId(i => i + 1)}>Next quote</button>
+      </section>
+      <button onClick={increment} disabled={isLoading}>Next quote</button>
     </>
   )
 }
