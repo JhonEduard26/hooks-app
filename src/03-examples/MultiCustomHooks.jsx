@@ -1,6 +1,6 @@
 import { useCounter, useFetch } from '../hooks'
-import { Loading } from '../loading/Loading'
-import { Quote } from '../quote/Quote'
+import { Loading } from './loading/Loading'
+import { Quote } from './quote/Quote'
 
 const baseUrl = 'https://www.breakingbadapi.com/api/'
 
