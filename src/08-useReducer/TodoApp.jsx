@@ -1,4 +1,6 @@
 import { useReducer } from 'react'
+import { TodoAdd } from './TodoAdd'
+import { TodoList } from './TodoList'
 import { todoReducer } from './todoReducer'
 
 const initialState = [
@@ -16,19 +18,27 @@ const initialState = [
 
 export const TodoApp = () => {
 
-  const [state, dispatch] = useReducer(todoReducer, initialState)
+  const [todos, dispatch] = useReducer(todoReducer, initialState)
+
+  const onNewTodo = (todo) => {
+    console.log(todo)
+  }
 
   return (
     <>
       <h1>TodoApp</h1>
-      <h4>useReducer</h4>
+      <h3>useReducer</h3>
       <hr />
 
-      <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-      </ul>
+      <div>
+        <h4>Agregar tarea</h4>
+        <TodoAdd onNewTodo={onNewTodo} />
+      </div>
+
+      <div>
+        <TodoList todos={todos} />
+      </div>
+
     </>
   )
 }

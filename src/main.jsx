@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { App } from './App'
 // import './08-useReducer/intro-reducer'
-import './index.css'
+import './styles.css'
 
 
 
