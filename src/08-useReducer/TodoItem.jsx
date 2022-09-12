@@ -1,8 +1,8 @@
-export const TodoItem = ({ description, done }) => {
+export const TodoItem = ({ id, description, done, handleDelete }) => {
   return (
     <li>
       <span>{description}</span>
-      <button>❎</button>
+      <button onClick={() => handleDelete(id)}>❎</button>
     </li>
   )
 }

@@ -21,7 +21,17 @@ export const TodoApp = () => {
   const [todos, dispatch] = useReducer(todoReducer, initialState)
 
   const onNewTodo = (todo) => {
-    console.log(todo)
+    dispatch({
+      type: '[TODO] add todo',
+      payload: todo,
+    })
+  }
+
+  const onDeleteTodo = (id) => {
+    dispatch({
+      type: '[TODO] delete a todo',
+      payload: id
+    })
   }
 
   return (
@@ -36,7 +46,7 @@ export const TodoApp = () => {
       </div>
 
       <div>
-        <TodoList todos={todos} />
+        <TodoList todos={todos} onDeleteTodo={onDeleteTodo} />
       </div>
 
     </>
