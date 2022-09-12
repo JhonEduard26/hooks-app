@@ -1,13 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { App } from './App'
+import { BrowserRouter } from 'react-router-dom'
+
+// import { App } from './App'
+import { MainApp } from './09-useContext/MainApp'
 // import './08-useReducer/intro-reducer'
 import './styles.css'
 
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // <React.StrictMode>
-  <App />
-  // </React.StrictMode>
+  <BrowserRouter>
+    <React.StrictMode>
+      <MainApp />
+    </React.StrictMode>
+  </BrowserRouter>
 )
