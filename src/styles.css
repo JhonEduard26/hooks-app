@@ -2,3 +2,11 @@ html,
 body {
   font-family: 'Trebuchet MS', sans-serif;
 }
+
+.pointer {
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+}

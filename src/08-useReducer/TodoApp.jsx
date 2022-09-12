@@ -1,42 +1,14 @@
-import { useReducer } from 'react'
+import { useTodos } from '../hooks'
 import { TodoAdd } from './TodoAdd'
 import { TodoList } from './TodoList'
-import { todoReducer } from './todoReducer'
-
-const initialState = [
-  {
-    id: new Date().getTime(),
-    description: 'Correr 3 millas',
-    done: false,
-  },
-  {
-    id: new Date().getTime() + 100,
-    description: 'Meditar 10 minutos',
-    done: false,
-  }
-]
 
 export const TodoApp = () => {
 
-  const [todos, dispatch] = useReducer(todoReducer, initialState)
-
-  const onNewTodo = (todo) => {
-    dispatch({
-      type: '[TODO] add todo',
-      payload: todo,
-    })
-  }
-
-  const onDeleteTodo = (id) => {
-    dispatch({
-      type: '[TODO] delete a todo',
-      payload: id
-    })
-  }
+  const { todos, todosCount, pendingTodosCount, onNewTodo, onToggleTodo, onDeleteTodo } = useTodos()
 
   return (
     <>
-      <h1>TodoApp</h1>
+      <h1>TodoApp: {todosCount}, pending: {pendingTodosCount}</h1>
       <h3>useReducer</h3>
       <hr />
 
@@ -46,7 +18,11 @@ export const TodoApp = () => {
       </div>
 
       <div>
-        <TodoList todos={todos} onDeleteTodo={onDeleteTodo} />
+        <TodoList
+          todos={todos}
+          onDeleteTodo={onDeleteTodo}
+          onToggleTodo={onToggleTodo}
+        />
       </div>
 
     </>

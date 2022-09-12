@@ -1,8 +1,13 @@
-export const TodoItem = ({ id, description, done, handleDelete }) => {
+export const TodoItem = ({ id, description, done, onDeleteTodo, onToggleTodo }) => {
   return (
     <li>
-      <span>{description}</span>
-      <button onClick={() => handleDelete(id)}>❎</button>
+      <span
+        className={`${done ? "completed" : ''} pointer`.trim()}
+        onClick={() => onToggleTodo(id)}
+      >
+        {description}
+      </span>
+      <button onClick={() => onDeleteTodo(id)}>❎</button>
     </li>
   )
 }
