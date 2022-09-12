@@ -3,6 +3,20 @@ body {
   font-family: 'Trebuchet MS', sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+  margin-right: 16px;
+}
+
+ul {
+  list-style: none;
+}
+
+.active {
+  text-decoration: underline;
+}
+
 .pointer {
   cursor: pointer;
 }
