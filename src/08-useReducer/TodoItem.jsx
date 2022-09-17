@@ -3,6 +3,7 @@ export const TodoItem = ({ id, description, done, onDeleteTodo, onToggleTodo }) 
     <li>
       <span
         className={`${done ? "completed" : ''} pointer`.trim()}
+        aria-label="span"
         onClick={() => onToggleTodo(id)}
       >
         {description}
