@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes, Link } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import { HomePage, AboutPage, LoginPage, Navbar } from './'
 import { UserProvider } from './context/UserProvider'
 
